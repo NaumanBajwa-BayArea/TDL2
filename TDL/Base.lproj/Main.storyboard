@@ -29,7 +29,14 @@
                             <outlet property="delegate" destination="S0q-DH-Pf9" id="Ufe-76-zEg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="TDL" id="hfN-1M-p8K"/>
+                    <navigationItem key="navigationItem" title="TDL" id="hfN-1M-p8K">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tbd-1r-4rD">
+                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="S0q-DH-Pf9" id="v5P-5c-wWe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4c-5l-W7D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
