@@ -11,27 +11,18 @@ import UIKit
 class TDLViewController: UITableViewController {
     
     var itemArray = [Item]()
-
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist") 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let newItem = Item()
-        newItem.title = "Find Mike"
-        itemArray.append(newItem)
+       
+  //      print(dataFilePath!)
         
-        let newItem1 = Item()
-        newItem1.title = "Find Mike"
-        itemArray.append(newItem1)
         
-        let newItem2 = Item()
-        newItem2.title = "Find Mike"
-        itemArray.append(newItem2)
-        
-        let newItem3 = Item()
-        newItem3.title = "Find Mike"
-        itemArray.append(newItem3)
-         itemArray.append(newItem3) 
+
+        loadItems()
         
         
     }
@@ -60,21 +51,8 @@ class TDLViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if itemArray[indexPath.row].done == false {
-            itemArray[indexPath.row].done = true
-        } else {
-            itemArray[indexPath.row].done = false
-        }
-        
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        } else{
-             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            
-        }
-        
-        tableView.reloadData()
-        print(itemArray[indexPath.row])
+        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        saveItems()
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -89,7 +67,8 @@ class TDLViewController: UITableViewController {
             let newItem = Item()
             newItem.title = textField.text!
             self.itemArray.append(newItem)
-            self.tableView.reloadData()
+            self.saveItems()
+
         }
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create New Item"
@@ -98,6 +77,32 @@ class TDLViewController: UITableViewController {
         }
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: Model Manipulation methods
+    func saveItems(){
+        let encoder = PropertyListEncoder()
+        do{
+            let data = try encoder.encode(itemArray)
+            try data.write(to: dataFilePath!)
+        }catch {
+            print("Error! Encoding item array error. \(error)")
+        }
+        tableView.reloadData()
+    }
+    
+    func loadItems(){
+        
+        if let data = try?Data(contentsOf: dataFilePath!){
+            let decoder = PropertyListDecoder()
+            do {
+                itemArray = try decoder.decode([Item].self, from: data)
+            }catch{
+                print("The data could not be decoded. \(error)")
+            }
+            
+        }
+        
     }
     
 }
