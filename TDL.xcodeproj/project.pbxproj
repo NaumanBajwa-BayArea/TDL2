@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA12C9B12388B7C900F28D2A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA12C9B02388B7C900F28D2A /* Item.swift */; };
 		CA7C5B5D2384306C00431D67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C5B5C2384306C00431D67 /* AppDelegate.swift */; };
 		CA7C5B5F2384306C00431D67 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C5B5E2384306C00431D67 /* SceneDelegate.swift */; };
 		CA7C5B612384306C00431D67 /* TDLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C5B602384306C00431D67 /* TDLViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA12C9B02388B7C900F28D2A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CA7C5B592384306C00431D67 /* TDL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TDL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA7C5B5C2384306C00431D67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA7C5B5E2384306C00431D67 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA12C9AB2388B74600F28D2A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA7C5B622384306C00431D67 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA12C9AC2388B75500F28D2A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CA7C5B602384306C00431D67 /* TDLViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CA12C9AD2388B76D00F28D2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CA12C9B02388B7C900F28D2A /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CA12C9B22388B81C00F28D2A /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				CA7C5B672384306D00431D67 /* LaunchScreen.storyboard */,
+				CA7C5B652384306D00431D67 /* Assets.xcassets */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		CA7C5B502384306C00431D67 = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +91,12 @@
 		CA7C5B5B2384306C00431D67 /* TDL */ = {
 			isa = PBXGroup;
 			children = (
+				CA12C9AD2388B76D00F28D2A /* Model */,
+				CA12C9AC2388B75500F28D2A /* Controller */,
+				CA12C9AB2388B74600F28D2A /* View */,
 				CA7C5B5C2384306C00431D67 /* AppDelegate.swift */,
 				CA7C5B5E2384306C00431D67 /* SceneDelegate.swift */,
-				CA7C5B602384306C00431D67 /* TDLViewController.swift */,
-				CA7C5B622384306C00431D67 /* Main.storyboard */,
-				CA7C5B652384306D00431D67 /* Assets.xcassets */,
-				CA7C5B672384306D00431D67 /* LaunchScreen.storyboard */,
+				CA12C9B22388B81C00F28D2A /* Supporting files */,
 				CA7C5B6A2384306D00431D67 /* Info.plist */,
 			);
 			path = TDL;
@@ -138,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA12C9B12388B7C900F28D2A /* Item.swift in Sources */,
 				CA7C5B612384306C00431D67 /* TDLViewController.swift in Sources */,
 				CA7C5B5D2384306C00431D67 /* AppDelegate.swift in Sources */,
 				CA7C5B5F2384306C00431D67 /* SceneDelegate.swift in Sources */,
