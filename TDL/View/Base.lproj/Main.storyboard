@@ -6,7 +6,46 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TDL-->
+        <!--TDL Categories-->
+        <scene sceneID="sAE-1d-zys">
+            <objects>
+                <tableViewController id="rnH-yt-Q85" customClass="CategoryViewController" customModule="TDL" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wbs-fg-xa8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="sdn-tT-Ehz">
+                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sdn-tT-Ehz" id="cvh-w6-Thp">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rnH-yt-Q85" id="SGY-FQ-lAd"/>
+                            <outlet property="delegate" destination="rnH-yt-Q85" id="yDU-xS-CiE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="TDL Categories" id="mMS-ch-jZo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HY7-7N-VpD">
+                            <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="rnH-yt-Q85" id="JqR-ir-IhH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="S0q-DH-Pf9" kind="show" identifier="goToItems" id="ReK-fU-1Ra"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aAD-fZ-odY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="473" y="148"/>
+        </scene>
+        <!--TDL Items-->
         <scene sceneID="5s2-jP-O1a">
             <objects>
                 <tableViewController id="S0q-DH-Pf9" customClass="TDLViewController" customModule="TDL" customModuleProvider="target" sceneMemberID="viewController">
@@ -14,9 +53,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="0iT-NG-0Kf">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="S0q-DH-Pf9" id="yr4-k9-xdZ"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TDLCell" id="TB6-fR-hSA">
-                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TB6-fR-hSA" id="1LG-oa-wUk">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -29,7 +76,7 @@
                             <outlet property="delegate" destination="S0q-DH-Pf9" id="Ufe-76-zEg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="TDL" id="hfN-1M-p8K">
+                    <navigationItem key="navigationItem" title="TDL Items" id="hfN-1M-p8K">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tbd-1r-4rD">
                             <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <connections>
@@ -40,7 +87,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4c-5l-W7D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="904" y="148"/>
+            <point key="canvasLocation" x="1202" y="148"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1F0-B3-6l3">
@@ -57,12 +104,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="S0q-DH-Pf9" kind="relationship" relationship="rootViewController" id="8Ua-wn-nwd"/>
+                        <segue destination="rnH-yt-Q85" kind="relationship" relationship="rootViewController" id="RZy-jb-RHJ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enA-VX-8Xc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="176.81159420289856" y="147.99107142857142"/>
+            <point key="canvasLocation" x="-287" y="148"/>
         </scene>
     </scenes>
 </document>
